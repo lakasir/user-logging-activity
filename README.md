@@ -1,11 +1,11 @@
-# Very short description of the package
+# Don't lose track of your app's Laravel activity
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lakasir/user-logging-activity.svg?style=flat-square)](https://packagist.org/packages/lakasir/user-logging-activity)
 [![Build Status](https://img.shields.io/travis/lakasir/user-logging-activity/master.svg?style=flat-square)](https://travis-ci.org/lakasir/user-logging-activity)
 [![Quality Score](https://img.shields.io/scrutinizer/g/lakasir/user-logging-activity.svg?style=flat-square)](https://scrutinizer-ci.com/g/lakasir/user-logging-activity)
 [![Total Downloads](https://img.shields.io/packagist/dt/lakasir/user-logging-activity.svg?style=flat-square)](https://packagist.org/packages/lakasir/user-logging-activity)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+The `lakasir/user-logging-activity` package provides easy to use functions to log the activities of the users of your app. It can also automatically log model events. All activity will be stored in the activity_log table.
 
 ## Installation
 
@@ -14,12 +14,43 @@ You can install the package via composer:
 ```bash
 composer require lakasir/user-logging-activity
 ```
+Publish migration and config file with:
+
+```bash
+php artisan lakasir:log-activity install
+```
 
 ## Usage
+You can get all activity just use the `Lakasir\UserLoggingActivity\Models\Activity`; model:
 
 ``` php
-// Usage description here
+Activity::all();
 ```
+Use `Lakasir\UserLoggingActivity\Facades\Activity;` facade:
+
+Create simple log:
+
+``` php
+Activity::info('Logged In at '. now()->format('Y-m-d'));
+```
+Create more advaced log
+
+``` php
+$data = Model::create($request->all());
+
+Activity::modelable($data)->auth()->creating();
+```
+## Available chaining action method
+
+* `creating()` for creating info
+* `updating()` for updating info
+* `sync()` for dispatch now action
+  * You can set default queue action in `acitivity_log.queable`, if the value is false you didn't need this chaining,
+  if true checkout the [job laravel documentation](https://laravel.com/docs/7.x/queues)
+* `auth()` for authenticable user 
+  * Set default user model in `activity_log.user_model`
+* `modelable($model)` pass the related activity
+
 
 ### Testing
 
@@ -41,7 +72,7 @@ If you discover any security related issues, please email sheenazien08@gmail.com
 
 ## Credits
 
-- [sheenazien8](https://github.com/lakasir)
+- [sheenazien8](https://github.com/sheenazien8)
 - [All Contributors](../../contributors)
 
 ## License
