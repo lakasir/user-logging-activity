@@ -17,15 +17,26 @@ composer require lakasir/user-logging-activity
 Publish migration and config file with:
 
 ```bash
-php artisan lakasir:log-activity install
+php artisan log-activity:install
 ```
 
 ## Usage
-You can get all activity just use the `Lakasir\UserLoggingActivity\Models\Activity`; model:
+
+First define which model you want to record:
 
 ``` php
-Activity::all();
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Lakasir\UserLoggingActivity\Traits\HasLog;
+
+class Purchasing extends Model
+{
+    use HasLog;
+    
+}
 ```
+
 Use `Lakasir\UserLoggingActivity\Facades\Activity;` facade:
 
 Create simple log:
@@ -36,10 +47,17 @@ Activity::info('Logged In at '. now()->format('Y-m-d'));
 Create more advaced log
 
 ``` php
-$data = Model::create($request->all());
+$data = Purchasing::create($request->all());
 
 Activity::modelable($data)->auth()->creating();
 ```
+
+You can get all activity just use the `Lakasir\UserLoggingActivity\Models\Activity`; model:
+
+``` php
+Activity::all();
+```
+
 ## Available chaining action method
 
 * `creating()` for creating info
