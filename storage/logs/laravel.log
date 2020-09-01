@@ -1,0 +1,25 @@
+[2020-08-31 11:45:42] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:192)
+[stacktrace]
+#0 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(118): Illuminate\\Log\\LogManager->resolve()
+#1 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(98): Illuminate\\Log\\LogManager->get()
+#2 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(547): Illuminate\\Log\\LogManager->driver()
+#3 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(121): Illuminate\\Log\\LogManager->error()
+#4 /home/sheenazien/code/packages/activity_log/vendor/matthewbdaly/artisan-standalone/src/Exceptions/Handler.php(39): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#5 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(376): Matthewbdaly\\ArtisanStandalone\\Exceptions\\Handler->report()
+#6 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 /home/sheenazien/code/packages/activity_log/vendor/matthewbdaly/artisan-standalone/artisan(36): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2020-08-31 11:45:42] laravel.ERROR: The /home/sheenazien/code/packages/activity_log/bootstrap/cache directory must be present and writable. {"exception":"[object] (Exception(code: 0): The /home/sheenazien/code/packages/activity_log/bootstrap/cache directory must be present and writable. at /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php:177)
+[stacktrace]
+#0 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(136): Illuminate\\Foundation\\PackageManifest->write()
+#1 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(106): Illuminate\\Foundation\\PackageManifest->build()
+#2 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(89): Illuminate\\Foundation\\PackageManifest->getManifest()
+#3 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(78): Illuminate\\Foundation\\PackageManifest->config()
+#4 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#5 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(219): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap()
+#6 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith()
+#7 /home/sheenazien/code/packages/activity_log/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 /home/sheenazien/code/packages/activity_log/vendor/matthewbdaly/artisan-standalone/artisan(36): Illuminate\\Foundation\\Console\\Kernel->handle()
+#9 {main}
+"} 
