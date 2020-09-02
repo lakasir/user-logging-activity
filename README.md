@@ -1,7 +1,6 @@
 # Don't lose track of your app's Laravel activity
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lakasir/user-logging-activity.svg?style=flat-square)](https://packagist.org/packages/lakasir/user-logging-activity)
-[![Build Status](https://img.shields.io/travis/lakasir/user-logging-activity/master.svg?style=flat-square)](https://travis-ci.org/lakasir/user-logging-activity)
 [![Quality Score](https://img.shields.io/scrutinizer/g/lakasir/user-logging-activity.svg?style=flat-square)](https://scrutinizer-ci.com/g/lakasir/user-logging-activity)
 [![Total Downloads](https://img.shields.io/packagist/dt/lakasir/user-logging-activity.svg?style=flat-square)](https://packagist.org/packages/lakasir/user-logging-activity)
 
