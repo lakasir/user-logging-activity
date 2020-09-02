@@ -28,9 +28,9 @@ class Activity extends ActivityAbstract
 
     public function info(string $info)
     {
-        $this->inf0 = $info;
+        $this->info = $info;
 
-        return $this;
+        return $this->create();
     }
 
     public function creating()

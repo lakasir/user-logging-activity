@@ -34,7 +34,15 @@ abstract class ActivityAbstract
 
     protected function create()
     {
-        if (method_exists($this->parent, 'logs')) {
+        $parent = null;
+        if (!isset($this->parent)) {
+            $auth = false;
+            if (config('activity_log.queueable')) {
+                dispatch(new ActivityCreate($this->data(), $this->model, $auth, $parent))->delay(now()->addSeconds(1));
+            } else {
+                dispatch_now(new ActivityCreate($this->data(), $this->model, $auth, $parent));
+            }
+        } elseif (method_exists($this->parent, 'logs')) {
             $auth = false;
             if ($this->auth) {
                 $auth = auth()->user();
@@ -50,12 +58,13 @@ abstract class ActivityAbstract
 
     private function data()
     {
+        $property = null;
         if (isset($this->property)) {
             $property = $this->property;
         }
         $devices = $this->request->header('user-agent');
         $ip_address = $this->request->server('REMOTE_ADDR');
-        $url = $this->request->path();
+        $url = $this->request->fullUrl();
         $referer = $this->request->header('referer');
         if (app()->environment() == 'testing') {
             $referer = app()->environment();

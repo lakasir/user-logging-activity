@@ -4,6 +4,7 @@ namespace Lakasir\UserLoggingActivity;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
+use Lakasir\UserLoggingActivity\Console\InstallLogActivityCommand;
 
 class ActivityServiceProvider extends ServiceProvider
 {
@@ -46,7 +47,9 @@ class ActivityServiceProvider extends ServiceProvider
             ], 'lang');*/
 
             // Registering package commands.
-            // $this->commands([]);
+            $this->commands([
+                InstallLogActivityCommand::class,
+            ]);
         }
     }
 
