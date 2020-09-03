@@ -46,7 +46,7 @@ class Activity extends ActivityAbstract
     {
         $this->info = self::UPDATING;
 
-        $this->property = json_encode(['created' => $this->parent->toArray()]);
+        $this->property = json_encode(['updated' => $this->parent->toArray()]);
 
         return $this->create();
     }
