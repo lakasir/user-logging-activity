@@ -17,6 +17,7 @@ Publish migration and config file with:
 
 ```bash
 php artisan log-activity:install
+php artisan migrate
 ```
 
 ## Usage
