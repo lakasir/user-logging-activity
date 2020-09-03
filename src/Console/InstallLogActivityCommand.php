@@ -18,7 +18,6 @@ class InstallLogActivityCommand extends Command
 
         $this->call('vendor:publish', [
             '--provider' => "Lakasir\UserLoggingActivity\ActivityServiceProvider",
-            '--tag' => "config"
         ]);
 
         $this->info('Installed Log Activity Package');
